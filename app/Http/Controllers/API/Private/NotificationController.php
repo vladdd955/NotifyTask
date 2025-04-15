@@ -18,7 +18,7 @@ class NotificationController extends Controller
         try {
             $request->validate([
                 'email' => 'required|string|exists:users,email',
-                'channel' => 'required|string',
+                'channel' => 'required|string|in:sms,email',
                 'message' => 'required|string',
             ]);
 

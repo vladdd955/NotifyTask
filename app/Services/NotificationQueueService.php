@@ -16,7 +16,7 @@ class NotificationQueueService
     {
         $queueItems = NotificationQueue::with('notification')
             ->where('status', 'pending')
-            ->limit(10)
+            ->limit(15)
             ->get();
 
         $results = [];
