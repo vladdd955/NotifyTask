@@ -36,7 +36,7 @@ class NotificationController extends Controller
         try {
             $templateSata = $request->validate([
                 'email' => 'required|string|exists:users,email',
-                'template_id' => 'required|int',
+                'template_id' => 'required|int|exists:templates,id',
             ]);
 
             $notification = $this->notificationService->createFromTemplate($templateSata);
