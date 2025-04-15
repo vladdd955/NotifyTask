@@ -17,7 +17,7 @@ class NotificationController extends Controller
     {
         try {
             $request->validate([
-                'email' => 'required|string',
+                'email' => 'required|string|exists:users,email',
                 'channel' => 'required|string',
                 'message' => 'required|string',
             ]);
@@ -35,7 +35,7 @@ class NotificationController extends Controller
     {
         try {
             $templateSata = $request->validate([
-                'email' => 'required|string',
+                'email' => 'required|string|exists:users,email',
                 'template_id' => 'required|int',
             ]);
 
@@ -52,7 +52,7 @@ class NotificationController extends Controller
     {
         try {
             $email = $request->validate([
-                'email' => 'required|string',
+                'email' => 'required|string|exists:users,email',
             ]);
 
             $notification = $this->notificationService->userNotify($email);
